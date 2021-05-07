@@ -1,17 +1,27 @@
+import './App.css';
 import Container from '@material-ui/core/Container';
 import Navbar from './Navbar';
 import Theme from './Theme';
-import { CssBaseline } from '@material-ui/core';
+import { CardMedia, CssBaseline, Grid, makeStyles } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Experience from './Experience'
 
+const useStyles = makeStyles((theme) => ({
+  media: {
+    height: 200,
+    objectFit: 'contain'
+  },
+}));
+
 function App() {
+  const classes = useStyles();
+
   return (
-    <Theme>
-      <CssBaseline />
-      <BrowserRouter>
-        <Navbar />
-        <Container>
+    <div className="App">
+      <Theme>
+        <CssBaseline />
+        <BrowserRouter>
+          <Navbar />
           <Switch>
             <Route path="/experience">
               <Experience />
@@ -21,9 +31,10 @@ function App() {
             <Route path="/about">
             </Route>
           </Switch>
-        </Container>
-      </BrowserRouter>
-    </Theme>
+
+        </BrowserRouter>
+      </Theme>
+    </div>
   );
 }
 
