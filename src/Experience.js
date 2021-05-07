@@ -1,10 +1,11 @@
-import { CardMedia, Grid, Grow, makeStyles } from '@material-ui/core';
-import { useState } from 'react';
+import { CardMedia, Fade, Grid, Grow, makeStyles } from '@material-ui/core';
+import { useEffect, useState } from 'react';
 import './App.css';
 import ExpCard from './ExpCard';
 import ExpCardDetails from './ExpCardDetails';
 import ExperienceDatabase from './ExperienceDatabase';
 import MessageBox from './MessageBox';
+import TypingIndicator from './TypingIndicator';
 
 const useStyles = makeStyles((theme) => ({
     media: {
@@ -17,6 +18,7 @@ function Experience() {
     const classes = useStyles();
     const experiences = ExperienceDatabase();
     const [job, setJob] = useState(experiences[0])
+    const [showMessage, setShowMessage] = useState(false)
 
     let timeout = 0;
     let messageTimeout = 5000;
@@ -24,8 +26,14 @@ function Experience() {
 
     const updateJob = (experience) => {
         setJob(experience);
+        setShowMessage(false);
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            setShowMessage(true);
+        }, 1700)
+    })
 
 
     return (
@@ -68,17 +76,15 @@ function Experience() {
                     </Grid>
                     <Grid item xs={12}>
                         <Grid xs container direction="column" spacing={1} style={{ padding: "10px" }}>
-                            {job.messeges.map(message => {
-                                messageTimeout += 2000;
-                                console.log(messageTimeout)
+                            {showMessage ? job.messeges.map(message => {
                                 return (
-                                    <Grow in={true} timeout={1000} xs>
-                                        <Grid item xs>
-                                            <MessageBox props={message} />
-                                        </Grid>
-                                    </Grow>
+                                        <Grow in={true} timeout={1000} xs>
+                                            <Grid item xs>
+                                                <MessageBox props={message} />
+                                            </Grid>
+                                        </Grow>
                                 )
-                            })}
+                            }) : <Fade in={true} xs><Grid item xs><TypingIndicator /></Grid></Fade>}
                         </Grid>
                     </Grid>
                 </Grid>

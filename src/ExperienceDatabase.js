@@ -26,7 +26,10 @@ function ExperienceDatabase() {
             "messeges": [
                 "Facebook is such a cool place to work at!",
                 "All the work and projects I've done were really interesting 😁",
-                "but I have to say, the infrastructure of Facebook is crazy, and I really value this experience!"
+                "but I have to say, the infrastructure of Facebook is crazy, and I really value this experience!",
+                "Cooperation between teams is fantastic, where each team is like a separate small company 😳",
+                "and the experience of working on services, that process big chunks of data and are used by tens of thousands of people...",
+                "is something that I really loved and wanna keep doing!"
             ]
         }, 
         {
@@ -51,9 +54,10 @@ function ExperienceDatabase() {
             "color": "rgba(25,118,210, 0.2)",
             "textColor": "#1976d2",
             "messeges": [
-                "Facebook is such a cool place to work at!",
-                "Although all the work I've done was really interesting, it was all internal, so there is nothing to showcase :(",
-                "but I have to say, the infrastructure of Facebook is crazy, and I really value this experience!"
+                "Gforces was the next step of my journey!",
+                "I had a chance to work with automotive again, this time developing website builder for car dealerships mostly in UK!",
+                "The team was great, and in this place I understood how much you can do with technology...",
+                "And how many solutions there are in IT world, each leads to different product requirments, which can be performance, scalability or anything you can imagine!",
             ]
         },
         {
@@ -77,9 +81,10 @@ function ExperienceDatabase() {
             "color": "rgba(25,118,210, 0.2)",
             "textColor": "#1976d2",
             "messeges": [
-                "Facebook is such a cool place to work at!",
-                "Although all the work I've done was really interesting, it was all internal, so there is nothing to showcase :(",
-                "but I have to say, the infrastructure of Facebook is crazy, and I really value this experience!"
+                "Hey! Motor Centrum is a car dealership from Poland",
+                "they also deal with Harleys, so maybe it is a car/motorcycle company 😅",
+                "it was the first time I worked in bigger company, that taught me not only new programming skills...",
+                "but also how different sectors from company operate together!",
             ]
         },
         {
@@ -107,9 +112,13 @@ function ExperienceDatabase() {
             "color": "#4c174d",
             "textColor": "#6f4570",
             "messeges": [
-                "Facebook is such a cool place to work at!",
-                "Although all the work I've done was really interesting, it was all internal, so there is nothing to showcase :(",
-                "but I have to say, the infrastructure of Facebook is crazy, and I really value this experience!"
+                "In Flywider I was given an opportity to create Influencer Advertisement Platform from scratch 😎",
+                "As I had experience with the company from my work in Apollin, I took this opportunity and...",
+                "lead the team of 3 people!",
+                "Great experience, that gave me a new understanding of how to manage the project from different perspectives.",
+                "Oh almost forgot! Here are some links:",
+                "https://flywider.net/",
+                "https://platform.flywider.net/",
             ]
         },
         {
@@ -137,7 +146,7 @@ function ExperienceDatabase() {
             "messeges": [
                 "Apollin is the place where my carrer began!",
                 "I was lucky enough to work with my colleague on freelancing projects and get real world experience 😳",
-                "The best part about this, is that there were thousands of live users on websites I worked on...",
+                "The best part about this, is that there were thousands of live users on the websites I worked on...",
                 "this gave me an opportunity to focus on performance/caching etc. 😁",
                 "pss... Checkout those websites I worked on",
                 "https://dartsnews.com/",
