@@ -1,7 +1,6 @@
 import './App.css';
 import { Typography, Card, CardContent, CardActionArea, CardMedia, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { useEffect, useState } from 'react';
 
 const useStyles = makeStyles({
     root: {

@@ -1,5 +1,4 @@
 import { Paper, Typography } from "@material-ui/core";
-import TypingIndicator from "./TypingIndicator";
 
 function MessageBox(props) {
     return (

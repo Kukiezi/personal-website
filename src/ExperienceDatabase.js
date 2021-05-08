@@ -136,7 +136,7 @@ function ExperienceDatabase() {
             "technologies": [
                 "PHP",
                 "Wordpress",
-                "Laravel",,
+                "Laravel",
                 "Javascript",
                 "React",
                 "SQL"

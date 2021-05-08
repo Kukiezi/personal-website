@@ -21,7 +21,6 @@ function Experience() {
     const [showMessage, setShowMessage] = useState(false)
 
     let timeout = 0;
-    let messageTimeout = 5000;
     let drawEmpty = false;
 
     const updateJob = (experience) => {
