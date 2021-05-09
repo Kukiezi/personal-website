@@ -10,7 +10,7 @@ const useStyles = makeStyles({
         backgroundColor: "#212529"
     },
     rootHighlight: {
-        transform: "scale(1.05)",
+        transform: "scale(1)",
         backgroundColor: "rgba(25,118,210, 0.2)",
     },
     media: {
@@ -27,7 +27,7 @@ function ExpCard(props) {
         <Card onClick={() => props.updateJob(props.props)} elevation={10} className={props.highlight ? classes.rootHighlight : classes.root}>
             <CardActionArea >
                 <CardContent>
-                    <Grid item xs container  spacing={2}>
+                    <Grid item xs container spacing={2}>
                         <Grid item xs={3}>
                             <CardMedia
                                 className={classes.media}

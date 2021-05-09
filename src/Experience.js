@@ -1,4 +1,4 @@
-import { CardMedia, Fade, Grid, Grow, makeStyles } from '@material-ui/core';
+import { CardMedia, Fade, Grid, Grow, makeStyles, Typography } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import './App.css';
 import ExpCard from './ExpCard';
@@ -34,35 +34,38 @@ function Experience() {
         }, 1700)
     })
 
-
     return (
-        <Grid container direction="row">
-            <Grid item xs={2}>
-            </Grid>
-            <Grid container xs>
-                <Grid xs={4} container spacing={3} style={{ padding: "10px" }}>
-                    {experiences.map(experience => {
-                        timeout += 500;
-                        drawEmpty = !drawEmpty;
-                        return (
-                            <Grow in={true} timeout={timeout} xs>
-                                <Grid item sm={12} xs>
-                                    <ExpCard props={experience} updateJob={updateJob} highlight={experience.company === job.company} />
-                                </Grid>
-                            </Grow>
-                        );
-                    })}
+        <>
+            <Grid item xs>
+                <Typography gutterBottom variant="h4" component="h1" style={{ fontFamily: "Montserrat, sans-serif", marginTop: '10px', paddingLeft: "10px" }}>
+                    Experience
+                            </Typography>
+                <Grid container xs>
+                    <Grid xs={4} container spacing={1} style={{ padding: "10px" }}>
+                        {experiences.map(experience => {
+                            timeout += 500;
+                            drawEmpty = !drawEmpty;
+                            return (
+                                <Grow in={true} timeout={timeout} xs>
+                                    <Grid item sm={12} xs>
+                                        <ExpCard props={experience} updateJob={updateJob} highlight={experience.company === job.company} />
+                                    </Grid>
+                                </Grow>
+                            );
+                        })}
+                    </Grid>
+                    <Grid xs container spacing={3} style={{ padding: "10px" }} >
+                        <Grow in={true} timeout={timeout}>
+                            <Grid item xs>
+                                <div style={{ height: "100%" }}>
+                                    <ExpCardDetails props={job} />
+                                </div>
+                            </Grid>
+                        </Grow>
+                    </Grid>
                 </Grid>
-                <Grid xs container spacing={3} style={{ padding: "10px" }} >
-                    <Grow in={true} timeout={timeout}>
-                        <Grid item xs>
-                            <div style={{ height: "100%" }}>
-                                <ExpCardDetails props={job} />
-                            </div>
-                        </Grid>
-                    </Grow>
-                </Grid>
             </Grid>
+
             <Grid item xs={2}>
                 <Grid container direction="column" >
                     <Grid item xs={12}>
@@ -77,18 +80,18 @@ function Experience() {
                         <Grid xs container direction="column" spacing={1} style={{ padding: "10px" }}>
                             {showMessage ? job.messeges.map(message => {
                                 return (
-                                        <Grow in={true} timeout={1000} xs>
-                                            <Grid item xs>
-                                                <MessageBox props={message} />
-                                            </Grid>
-                                        </Grow>
+                                    <Grow in={true} timeout={1000} xs>
+                                        <Grid item xs>
+                                            <MessageBox props={message} />
+                                        </Grid>
+                                    </Grow>
                                 )
                             }) : <Fade in={true} xs><Grid item xs><TypingIndicator /></Grid></Fade>}
                         </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-        </Grid>
+            </>
     );
 }
 
