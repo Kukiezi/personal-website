@@ -5,6 +5,9 @@ import KeyboardIcon from '@material-ui/icons/Keyboard';
 import FlareIcon from '@material-ui/icons/Flare';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+
 
 export default function ListItemLink(props) {
   const { icon, primary, to } = props;
@@ -29,6 +32,12 @@ export default function ListItemLink(props) {
     }
     if (icon === "flare") {
         return <FlareIcon style={{color: "white"}}/>
+    }
+    if (icon === "instagram") {
+        return <InstagramIcon style={{color: "white"}}/>
+    }
+    if (icon === "linkedin") {
+        return <LinkedInIcon style={{color: "white"}}/>
     }
 }
 
