@@ -15,7 +15,7 @@ export default function SimpleCard(props) {
 
     return (
         <>
-            {props.skeleton ? <Grow in={true} timeout={2000}><Grid item xs>
+            {props.skeleton ? <Grow in={true} timeout={2000}><Grid item xl={3} xs={12} md={6} sm={12} lg={4}>
                 <Card elevation={10} className={classes.root}>
                     <CardMedia
                         className={classes.media}

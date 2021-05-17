@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         "&:hover": {
             transform: "scale(1)"
         },
-        height: "78vh"
+        height: "77.4vh"
     },
     media: {
         height: 60,

@@ -1,10 +1,11 @@
-import { Divider, Grid, Link, List, ListItem, makeStyles } from '@material-ui/core';
+import { Divider, Grid, Hidden, Link, List, ListItem, makeStyles } from '@material-ui/core';
 import Drawer from '@material-ui/core/Drawer';
 import ListItemLink from './ListItemLink';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import { useState } from 'react';
 
 const drawerWidth = 240;
 
@@ -13,12 +14,16 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
     },
     appBar: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
+        [theme.breakpoints.up('sm')]: {
+            width: `calc(100% - ${drawerWidth}px)`,
+            marginLeft: drawerWidth,
+        },
     },
     drawer: {
-        width: drawerWidth,
-        flexShrink: 0,
+        [theme.breakpoints.up('sm')]: {
+            width: drawerWidth,
+            flexShrink: 0,
+        },
     },
     drawerPaper: {
         width: drawerWidth,
@@ -29,20 +34,27 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
+    toolbar: theme.mixins.toolbar,
+    menuButton: {
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.up('sm')]: {
+            display: 'none',
+        },
+    },
 }));
 
-export default function Sidebar() {
+export default function Sidebar(props) {
+    const { window } = props;
+
     const classes = useStyles();
+    const [mobileOpen, setMobileOpen] = useState(false);
 
-    return (
-        <Drawer
-            className={classes.drawer}
-            variant="permanent"
-            classes={{
-                paper: classes.drawerPaper,
-            }}
-            anchor="left">
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
+    };
 
+    const drawer = (
+        <div>
             <div className={classes.toolbar} />
             <List>
                 <ListItemLink primary={"WELCOME"} icon="flare" to="/" exact />
@@ -77,11 +89,45 @@ export default function Sidebar() {
                                 <FacebookIcon style={{ color: "#0084ff" }} />
                             </Link>
                         </Grid>
-                        </Grid>
+                    </Grid>
                 </ListItem>
-                   
-            </List>
 
-        </Drawer>
+            </List>
+        </div>
+    );
+    const container = window !== undefined ? () => window().document.body : undefined;
+
+    return (
+        <nav className={classes.drawer} aria-label="mailbox folders">
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Hidden smUp implementation="css">
+          <Drawer
+            container={container}
+            variant="temporary"
+            anchor={'left'}
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+        <Hidden xsDown implementation="css">
+          <Drawer
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            variant="permanent"
+            open
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+      </nav>
     );
 }

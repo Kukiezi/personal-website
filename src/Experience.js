@@ -1,4 +1,4 @@
-import { CardMedia, Fade, Grid, Grow, makeStyles, Typography } from '@material-ui/core';
+import { CardMedia, Fade, Grid, Grow, Hidden, makeStyles, Typography } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import './App.css';
 import ExpCard from './ExpCard';
@@ -35,63 +35,70 @@ function Experience() {
     })
 
     return (
-        <>
-            <Grid item xs>
+        <Grid container xs>
+            <Grid item xs={12} xl={10}>
                 <Typography gutterBottom variant="h4" component="h1" style={{ fontFamily: "Montserrat, sans-serif", marginTop: '10px', paddingLeft: "10px" }}>
                     Experience
                             </Typography>
-                <Grid container xs>
-                    <Grid xs={4} container spacing={1} style={{ padding: "10px" }}>
-                        {experiences.map(experience => {
-                            timeout += 500;
-                            drawEmpty = !drawEmpty;
-                            return (
-                                <Grow in={true} timeout={timeout} xs>
-                                    <Grid item sm={12} xs>
-                                        <ExpCard props={experience} updateJob={updateJob} highlight={experience.company === job.company} />
-                                    </Grid>
-                                </Grow>
-                            );
-                        })}
-                    </Grid>
-                    <Grid xs container spacing={3} style={{ padding: "10px" }} >
-                        <Grow in={true} timeout={timeout}>
-                            <Grid item xs>
-                                <div style={{ height: "100%" }}>
-                                    <ExpCardDetails props={job} />
-                                </div>
-                            </Grid>
-                        </Grow>
-                    </Grid>
-                </Grid>
-            </Grid>
-
-            <Grid item xs={2}>
-                <Grid container direction="column" >
-                    <Grid item xs={12}>
-                        <CardMedia
-                            className={classes.media}
-                            image="https://i.ibb.co/wJFFzsD/53509-removebg-preview-1.png"
-                            title={"developer talking"}
-                            component="img" />
-
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Grid xs container direction="column" spacing={1} style={{ padding: "10px" }}>
-                            {showMessage ? job.messeges.map(message => {
+                <Grid container xs={12}>
+                    <Grid item xs={12} sm={11} md={2} lg={4}>
+                        <Grid container direction="column" justify="center" spacing={1} style={{ padding: "10px" }}>
+                            {experiences.map(experience => {
+                                timeout += 500;
+                                drawEmpty = !drawEmpty;
                                 return (
-                                    <Grow in={true} timeout={1000} xs>
-                                        <Grid item xs>
-                                            <MessageBox props={message} />
+                                    <Grow in={true} timeout={timeout} xs>
+                                        <Grid item xs={12}>
+                                            <ExpCard props={experience} updateJob={updateJob} highlight={experience.company === job.company} />
                                         </Grid>
                                     </Grow>
-                                )
-                            }) : <Fade in={true} xs><Grid item xs><TypingIndicator /></Grid></Fade>}
+                                );
+                            })}
+                        </Grid>
+                    </Grid>
+                    <Hidden only={['xs', 'sm']}>
+                        <Grid item xs>
+                            <Grid xs container spacing={3} style={{ padding: "10px" }} >
+                                <Grow in={true} timeout={timeout}>
+                                    <Grid item xs>
+                                        <div style={{ height: "100%" }}>
+                                            <ExpCardDetails props={job} />
+                                        </div>
+                                    </Grid>
+                                </Grow>
+                            </Grid>
+                        </Grid>
+                    </Hidden>
+                </Grid>
+            </Grid>
+            <Hidden only={['xs', 'sm', 'md', 'lg']}>
+                <Grid item xl={2}>
+                    <Grid container direction="column" >
+                        <Grid item xs={12}>
+                            <CardMedia
+                                className={classes.media}
+                                image="https://i.ibb.co/wJFFzsD/53509-removebg-preview-1.png"
+                                title={"developer talking"}
+                                component="img" />
+
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Grid xs container direction="column" spacing={1} style={{ padding: "10px" }}>
+                                {showMessage ? job.messeges.map(message => {
+                                    return (
+                                        <Grow in={true} timeout={1000} xs>
+                                            <Grid item xs>
+                                                <MessageBox props={message} />
+                                            </Grid>
+                                        </Grow>
+                                    )
+                                }) : <Fade in={true} xs><Grid item xs><TypingIndicator /></Grid></Fade>}
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
-            </>
+            </Hidden>
+        </Grid>
     );
 }
 
