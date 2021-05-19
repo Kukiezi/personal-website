@@ -1,11 +1,11 @@
 import { CardMedia, Fade, Grid, Grow, Hidden, makeStyles, Typography } from '@material-ui/core';
 import { useEffect, useState } from 'react';
-import './App.css';
+import '../css/App.css';
 import ExpCard from './ExpCard';
 import ExpCardDetails from './ExpCardDetails';
-import ExperienceDatabase from './ExperienceDatabase';
+import ExperienceDatabase from '../Data/ExperienceDatabase';
 import MessageBox from './MessageBox';
-import TypingIndicator from './TypingIndicator';
+import TypingIndicator from '../TypingIndicator';
 
 const useStyles = makeStyles((theme) => ({
     media: {

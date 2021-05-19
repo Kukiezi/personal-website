@@ -1,4 +1,4 @@
-import './TypingIndicator.css'
+import './css/TypingIndicator.css'
 
 function TypingIndicator() {
     return (

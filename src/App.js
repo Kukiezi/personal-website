@@ -1,11 +1,11 @@
-import './App.css';
+import './css/App.css';
 import Theme from './Theme';
 import { CssBaseline, Fade, Grid } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Experience from './Experience'
-import Sidebar from './Sidebar'
-import Landing from './Landing';
-import LoadedContext from './LoadedContext';
+import Experience from './Experience/Experience'
+import Sidebar from './Sidebar/Sidebar'
+import Landing from './Dashboard/Landing';
+import LoadedContext from './Dashboard/LoadedContext';
 
 function App() {
   return (

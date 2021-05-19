@@ -1,4 +1,4 @@
-import './App.css';
+import '../css/App.css';
 import { Card, CardContent, CardMedia, Grid, Grow, Paper, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ExperienceParagraph from './ExperienceParagraph';

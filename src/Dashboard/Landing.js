@@ -1,8 +1,7 @@
 import { Avatar, Grid, Grow, makeStyles, Paper, Typography } from "@material-ui/core";
 import Skeleton from '@material-ui/lab/Skeleton';
 import { useCallback, useContext, useEffect, useState } from "react";
-import "./Typing.css"
-import MeDatabase from "./MeDatabase";
+import MeDatabase from "../Data/MeDatabase";
 import SimpleCard from "./SimpleCard";
 import LoadedContext from './LoadedContext';
 
