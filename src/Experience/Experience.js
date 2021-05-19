@@ -41,21 +41,40 @@ function Experience() {
                     Experience
                             </Typography>
                 <Grid container xs={12}>
-                    <Grid item xs={12} sm={11} md={2} lg={4}>
-                        <Grid container direction="column" justify="center" spacing={1} style={{ padding: "10px" }}>
-                            {experiences.map(experience => {
-                                timeout += 500;
-                                drawEmpty = !drawEmpty;
-                                return (
-                                    <Grow in={true} timeout={timeout} xs>
-                                        <Grid item xs={12}>
-                                            <ExpCard props={experience} updateJob={updateJob} highlight={experience.company === job.company} />
-                                        </Grid>
-                                    </Grow>
-                                );
-                            })}
+                    <Hidden smDown>
+                        <Grid item xs={12} sm={11} md={2} lg={4}>
+                            <Grid container direction="column" justify="center" spacing={1} style={{ padding: "10px" }}>
+                                {experiences.map(experience => {
+                                    timeout += 500;
+                                    drawEmpty = !drawEmpty;
+                                    return (
+                                        <Grow in={true} timeout={timeout} xs>
+                                            <Grid item xs={12}>
+                                                <ExpCard props={experience} updateJob={updateJob} highlight={experience.company === job.company} />
+                                            </Grid>
+                                        </Grow>
+                                    );
+                                })}
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </Hidden>
+                    <Hidden mdUp>
+                        <Grid item xs={12} sm={11} md={2} lg={4}>
+                            <Grid container direction="column" justify="center" spacing={4} style={{ padding: "10px" }}>
+                                {experiences.map(experience => {
+                                    timeout += 500;
+                                    drawEmpty = !drawEmpty;
+                                    return (
+                                        <Grow in={true} timeout={timeout} xs>
+                                            <Grid item xs={12}>
+                                                <ExpCard props={experience} updateJob={updateJob} highlight={experience.company === job.company} />
+                                            </Grid>
+                                        </Grow>
+                                    );
+                                })}
+                            </Grid>
+                        </Grid>
+                    </Hidden>
                     <Hidden only={['xs', 'sm']}>
                         <Grid item xs>
                             <Grid xs container spacing={3} style={{ padding: "10px" }} >

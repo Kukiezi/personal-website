@@ -1,4 +1,4 @@
-import { Avatar, Grid, Grow, makeStyles, Paper, Typography } from "@material-ui/core";
+import { Avatar, Grid, Grow, Hidden, makeStyles, Paper, Typography } from "@material-ui/core";
 import Skeleton from '@material-ui/lab/Skeleton';
 import { useCallback, useContext, useEffect, useState } from "react";
 import MeDatabase from "../Data/MeDatabase";
@@ -17,9 +17,28 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(3),
     },
     large: {
-        width: theme.spacing(15),
-        height: theme.spacing(15),
+        [theme.breakpoints.up('sm')]: {
+            width: theme.spacing(15),
+            height: theme.spacing(15),
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: theme.spacing(9),
+            height: theme.spacing(9),
+        },
+        float: "left",
+        margin: "8px",
     },
+    welcomeText: {
+        fontWeight: "400",
+        fontFamily: "Montserrat, sans-serif",
+        textAlign: "center",
+        [theme.breakpoints.up('sm')]: {
+            fontSize: "3rem",
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "2.5rem",
+        },
+    }
 }));
 
 export default function Landing() {
@@ -28,7 +47,7 @@ export default function Landing() {
     const data = MeDatabase();
     const text = "Hi, I am Dawid";
     const context = useContext(LoadedContext);
-    
+
     const autoType = useCallback((text) => {
         const welcomeText = document.querySelector("#welcomeText");
         let timeout = 100;
@@ -61,31 +80,37 @@ export default function Landing() {
         }, 150 * text.length + 100)
     }, [text, context, autoType])
 
-    
+
 
     return (
-        <Grid container  direction="row" spacing={4}>
+        <Grid container direction="row" spacing={4}>
             <Grid item xs={12}>
-                <div id="welcomeText" style={{ fontWeight: "400", fontFamily: "Montserrat, sans-serif", textAlign: "center", fontSize: "3rem" }}></div>
+                <div id="welcomeText" className={classes.welcomeText}></div>
             </Grid>
-            <Grid item xs={0} md={2} />
-            <Grow in={true} timeout={1000}><Grid item xs alignContent="center">
-                <Grid container xs spacing={0}>
-                    <Paper elevation={12} style={{ backgroundColor: "#212529" }}>
-                        <Grid item xs={12}>
-                            <Grid container xs spacing={3} style={{ padding: "10px", margin: "0px" }}>
-                                <Grid item xs={4} lg={2}><Avatar alt="Dawid Weltrowski-Knopik" src="https://i.ibb.co/PMsm7wV/IMG-20210324-233002-531.jpg" className={classes.large} /></Grid>
-                                <Grid item xs>
-                                    <Typography gutterBottom variant="body1" component="h3" style={{ fontFamily: "Montserrat, sans-serif" }}>My name is Dawid Weltrowski-Knopik. I live in Gdynia, Poland, where I was born and raised. I have been programming for over 6 years now, and I enojy the process of self improvement very much.</Typography>
-                                    <Typography variant="body1" component="h3" style={{ fontFamily: "Montserrat, sans-serif" }}>My goal is to become the best I can be. And since, there is always a room for improvement... I hope to keep growing, while also doing great, impactful things and enjoying the life 😁</Typography>
+            <Hidden smDown><Grid item xs={0} md={2} /></Hidden>
+            <Grow in={true} timeout={1000}>
+                <Grid item xs={12} md={8}>
+                    <Grid container xs justify='center'>
+                        <Paper elevation={12} style={{ backgroundColor: "#212529" }}>
+                            <Grid item xs={12}>
+                                <Grid container xs spacing={3} style={{ padding: "10px", margin: "0px" }}>
+                                    <Grid item xs>
+                                        <Avatar
+                                            alt="Dawid Weltrowski-Knopik"
+                                            src="https://i.ibb.co/PMsm7wV/IMG-20210324-233002-531.jpg"
+                                            className={classes.large}
+                                        />
+                                        <Typography gutterBottom variant="body1" component="h3" style={{ fontFamily: "Montserrat, sans-serif", textAlign: "justify" }}>My name is Dawid Weltrowski-Knopik. I live in Gdynia, Poland, where I was born and raised. I have been programming for over 6 years now, and I enojy the process of self improvement very much.</Typography>
+                                        <Typography gutterBottom variant="body1" component="h3" style={{ fontFamily: "Montserrat, sans-serif", textAlign: "justify" }}>My goal is to become the best I can be. And since, there is always a room for improvement... I hope to keep growing, while also doing great, impactful things and enjoying the life 😁</Typography>
+                                        <Typography variant="body1" component="h3" style={{ fontFamily: "Montserrat, sans-serif", textAlign: "justify", fontStyle: "italic" }}>"Live a life without regrets."</Typography>
+                                    </Grid>
                                 </Grid>
                             </Grid>
-                        </Grid>
-                    </Paper>
+                        </Paper>
+                    </Grid>
                 </Grid>
-            </Grid>
             </Grow>
-            <Grid item xs={0} md={2} />
+            <Hidden smDown><Grid item xs={0} md={2} /></Hidden>
             <Grid item xs={12}>
                 <Grid container xs justify='center'>
                     <Grid item xs={12}>
@@ -94,7 +119,7 @@ export default function Landing() {
                         </Typography>
                     </Grid>
                     <Grid item xs={12}>
-                        <Grid container justify="left" spacing={3} style={{padding: "10px"}}>
+                        <Grid container justify="left" spacing={3} style={{ padding: "10px" }}>
                             {data.map(x => {
                                 return <SimpleCard data={x} skeleton={skeleton} />
                             })}
