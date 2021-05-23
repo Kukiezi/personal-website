@@ -20,7 +20,7 @@ export default function SimpleCard(props) {
                     <CardMedia
                         className={classes.media}
                         image={props.data.image}
-                        title={"travel"}
+                        title={props.data.title}
                         component="img" />
                     <CardContent>
                         <Typography variant="h6" component="h3">{props.data.title}</Typography>

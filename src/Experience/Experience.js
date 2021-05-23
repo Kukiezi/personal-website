@@ -78,7 +78,7 @@ function Experience() {
                     <Hidden only={['xs', 'sm']}>
                         <Grid item xs>
                             <Grid xs container spacing={3} style={{ padding: "10px" }} >
-                                <Grow in={true} timeout={timeout}>
+                                <Grow in={true} timeout={1000}>
                                     <Grid item xs>
                                         <div style={{ height: "100%" }}>
                                             <ExpCardDetails props={job} />

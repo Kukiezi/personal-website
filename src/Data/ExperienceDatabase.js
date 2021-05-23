@@ -32,34 +32,34 @@ function ExperienceDatabase() {
                 "is something that I really loved and wanna keep doing!"
             ]
         }, 
-        {
-            "logo": "https://res-4.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/qg8ghau9o27dex7cmoxd",
-            "company": "Gforces",
-            "position": "Software Engineer",
-            "team": "Website Builder Tool",
-            "dates": "August 2020 - October 2020",
-            "summary": "Worked on backend system, that provides website builder for our clients from Automotive industry",
-            "paragraphs": [
-                "Worked on backend system, that provides website builder for clients from Automotive industry.",
-                "Developed widgets, that are used in website builder.",
-                "Worked on bug fixes and maintance.",
-            ],
-            "technologies": [
-                "Python",
-                "PHP/HACK",
-                "Javascript",
-                "React",
-                "SQL"
-            ],
-            "color": "rgba(25,118,210, 0.2)",
-            "textColor": "#1976d2",
-            "messeges": [
-                "Gforces was the next step of my journey!",
-                "I had a chance to work with automotive again, this time developing website builder for car dealerships mostly in UK!",
-                "The team was great, and in this place I understood how much you can do with technology...",
-                "And how many solutions there are in IT world, each leads to different product requirments, which can be performance, scalability or anything you can imagine!",
-            ]
-        },
+        // {
+        //     "logo": "https://res-4.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/qg8ghau9o27dex7cmoxd",
+        //     "company": "Gforces",
+        //     "position": "Software Engineer",
+        //     "team": "Website Builder Tool",
+        //     "dates": "August 2020 - October 2020",
+        //     "summary": "Worked on backend system, that provides website builder for our clients from Automotive industry",
+        //     "paragraphs": [
+        //         "Worked on backend system, that provides website builder for clients from Automotive industry.",
+        //         "Developed widgets, that are used in website builder.",
+        //         "Worked on bug fixes and maintance.",
+        //     ],
+        //     "technologies": [
+        //         "Python",
+        //         "PHP/HACK",
+        //         "Javascript",
+        //         "React",
+        //         "SQL"
+        //     ],
+        //     "color": "rgba(25,118,210, 0.2)",
+        //     "textColor": "#1976d2",
+        //     "messeges": [
+        //         "Gforces was the next step of my journey!",
+        //         "I had a chance to work with automotive again, this time developing website builder for car dealerships mostly in UK!",
+        //         "The team was great, and in this place I understood how much you can do with technology...",
+        //         "And how many solutions there are in IT world, each leads to different product requirments, which can be performance, scalability or anything you can imagine!",
+        //     ]
+        // },
         {
             "logo": "https://www.motorcentrum.pl/wp-content/uploads/2019/01/logo-motorcentrum-2.png",
             "company": "Motor Centrum",
