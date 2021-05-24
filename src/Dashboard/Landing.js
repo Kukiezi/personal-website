@@ -92,40 +92,44 @@ export default function Landing() {
 
 
     return (
-        <Grid container direction="row" spacing={3}>
+        <Grid container xs={12} direction="column" justify="center" alignContent="center">
             <Grid item xs={12}>
                 <div id="welcomeText" className={classes.welcomeText}></div>
             </Grid>
-            <Hidden smDown><Grid item xs={0} md={2} /></Hidden>
-            <Grow in={true} timeout={1000}>
-                <Grid item xs={12} md={8}>
-                    <Grid container xs justify='center'>
-                        <Paper elevation={12} style={{ backgroundColor: "#212529" }}>
-                            <Grid item xs={12}>
-                                <Grid container xs spacing={3} style={{ padding: "10px", margin: "0px" }}>
-                                    <Grid item xs>
-                                        <Avatar
-                                            alt="Dawid Weltrowski-Knopik"
-                                            src="https://i.ibb.co/PMsm7wV/IMG-20210324-233002-531.jpg"
-                                            className={classes.large}
-                                        />
-                                        <Typography gutterBottom variant="body1" component="h3" style={{ fontFamily: "Montserrat, sans-serif", textAlign: "justify" }}>My name is Dawid Weltrowski-Knopik. I live in Gdynia, Poland, where I was born and raised. I have been programming for over 6 years now, and I enojy the process of self improvement very much.</Typography>
-                                        <Typography gutterBottom variant="body1" component="h3" style={{ fontFamily: "Montserrat, sans-serif", textAlign: "justify" }}>My goal is to become the best version of myself. I am constantly self-improving, and since there is always a room for improvement... I hope to keep growing, while also doing great, impactful things and enjoying the life 😁</Typography>
-                                        <Typography variant="body1" component="h3" className={classes.linkText} style={{ fontFamily: "Montserrat, sans-serif", textAlign: "justify", fontStyle: "italic" }}>"Live a life without regrets."</Typography>
+            <Grid item xs={12}>
+                <Grid container xs={12} direction="row" justify="center" alignContent="center">
+                    <Hidden smDown><Grid item xs={0} md={2} /></Hidden>
+                    <Grow in={true} timeout={1000}>
+                        <Grid item xs={12} md={8}>
+                            <Grid container xs justify='center'>
+                                <Paper elevation={12} style={{ backgroundColor: "#212529" }}>
+                                    <Grid item xs={12}>
+                                        <Grid container xs spacing={3} style={{ padding: "10px", margin: "0px" }}>
+                                            <Grid item xs>
+                                                <Avatar
+                                                    alt="Dawid Weltrowski-Knopik"
+                                                    src="https://i.ibb.co/PMsm7wV/IMG-20210324-233002-531.jpg"
+                                                    className={classes.large}
+                                                />
+                                                <Typography gutterBottom variant="body1" component="h3" style={{ fontFamily: "Montserrat, sans-serif", textAlign: "justify" }}>My name is Dawid Weltrowski-Knopik. I live in Gdynia, Poland, where I was born and raised. I have been programming for over 6 years now, and I enojy the process of self improvement very much.</Typography>
+                                                <Typography gutterBottom variant="body1" component="h3" style={{ fontFamily: "Montserrat, sans-serif", textAlign: "justify" }}>My goal is to become the best version of myself. I am constantly self-improving, and since there is always a room for improvement... I hope to keep growing, while also doing great, impactful things and enjoying the life 😁</Typography>
+                                                <Typography variant="body1" component="h3" className={classes.linkText} style={{ fontFamily: "Montserrat, sans-serif", textAlign: "justify", fontStyle: "italic" }}>"Live a life without regrets."</Typography>
+                                            </Grid>
+                                        </Grid>
                                     </Grid>
-                                </Grid>
+                                </Paper>
                             </Grid>
-                        </Paper>
-                    </Grid>
+                        </Grid>
+                    </Grow>
+                    <Hidden smDown><Grid item xs={0} md={2} /></Hidden>
                 </Grid>
-            </Grow>
-            <Hidden smDown><Grid item xs={0} md={2} /></Hidden>
+            </Grid>
             <Grid item xs={12}>
                 <Grid container xs justify='center'>
                     <Grid item xs={12}>
                         <Typography variant="h4" component="h2" style={{ fontWeight: "400", fontFamily: "Montserrat, sans-serif", textAlign: "left", padding: "10px", marginTop: "2rem" }}>
                             {skeleton ? 'My Skills' : <Skeleton />}
-                            
+
                         </Typography>
                     </Grid>
                     <Grid item xs={12}>
@@ -136,14 +140,7 @@ export default function Landing() {
                             })}
                         </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <MaterialLink component={Link} to="/experience">
-                            <Typography variant="body3" component="body" style={{ fontWeight: "400", fontFamily: "Montserrat, sans-serif", textAlign: "left", padding: "10px", display: 'inline'}}>
-                                {skeleton ? <><span className={classes.linkText}>Check out my experience</span>
-                                <TouchAppIcon /></> : <Skeleton />}
-                            </Typography>
-                        </MaterialLink>
-                    </Grid>
+                   
                 </Grid>
             </Grid>
             <Grid item xs={12}>
@@ -151,17 +148,17 @@ export default function Landing() {
                     <Grid item xs={12}>
                         <Typography variant="h4" component="h2" style={{ fontWeight: "400", fontFamily: "Montserrat, sans-serif", textAlign: "left", padding: "10px", marginTop: "2rem" }}>
                             {skeleton ? <><span className={classes.linkText}>Work</span> Experience</> : <Skeleton />}
-                            
+
                         </Typography>
                     </Grid>
                     <Grid container justify="left" spacing={6} style={{ padding: "10px", position: 'relative' }}>
-                        <WorkGraph skeleton={skeleton}/>
+                        <WorkGraph skeleton={skeleton} />
                     </Grid>
                     <Grid item xs={12}>
                         <MaterialLink component={Link} to="/experience">
-                            <Typography variant="body3" component="body" style={{ fontWeight: "400", fontFamily: "Montserrat, sans-serif", textAlign: "left", padding: "10px", display: 'inline'}}>
+                            <Typography variant="body3" component="body" style={{ fontWeight: "400", fontFamily: "Montserrat, sans-serif", textAlign: "left", padding: "10px", display: 'inline' }}>
                                 {skeleton ? <><span className={classes.linkText}>Check out my experience</span>
-                                <TouchAppIcon /></> : <Skeleton />}
+                                    <TouchAppIcon /></> : <Skeleton />}
                             </Typography>
                         </MaterialLink>
                     </Grid>
@@ -171,8 +168,8 @@ export default function Landing() {
                 <Grid container xs justify='center'>
                     <Grid item xs={12}>
                         <Typography variant="h4" component="h2" style={{ fontWeight: "400", fontFamily: "Montserrat, sans-serif", textAlign: "left", padding: "10px", marginTop: "2rem" }}>
-                            {skeleton ? <>Learn <span className={classes.linkText}>About</span> Me</>  : <Skeleton />}
-                            
+                            {skeleton ? <>Learn <span className={classes.linkText}>About</span> Me</> : <Skeleton />}
+
                         </Typography>
                     </Grid>
                     <Grid item xs={12}>

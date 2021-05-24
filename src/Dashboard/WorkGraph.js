@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 export default function WorkGraph(props) {
     const classes = useStyles();
     const workData = ExperienceDatabase();
-    let timeout = 500;
+    
     return (
         <> {props.skeleton ? <>
             <Hidden lgDown>
@@ -42,9 +42,8 @@ export default function WorkGraph(props) {
             </svg>
             </Hidden>
             {workData.map(data => {
-                timeout += 500;
                 return (
-                    <Grow in={true} timeout={timeout}>
+                    <Grow in={true} timeout={1000}>
                         <Grid item xl={3} xs={12} md={6} sm={12} lg={4} style={{ backgroundColor: "transparent" }}>
                             <LandingExpCard props={data} updateJob={() => { }} />
                         </Grid>

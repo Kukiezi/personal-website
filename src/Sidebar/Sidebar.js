@@ -1,4 +1,4 @@
-import { Divider, Grid, Hidden, Link, List, ListItem, makeStyles } from '@material-ui/core';
+import { AppBar, Divider, Grid, Hidden, IconButton, Link, List, ListItem, makeStyles, Toolbar } from '@material-ui/core';
 import Drawer from '@material-ui/core/Drawer';
 import ListItemLink from './ListItemLink';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -6,6 +6,9 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import { useState } from 'react';
+import clsx from 'clsx';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 const drawerWidth = 240;
 
@@ -14,10 +17,32 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
     },
     appBar: {
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
         [theme.breakpoints.up('sm')]: {
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
         },
+    },
+    appBarShift: {
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerWidth,
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    },
+    contentShift: {
+        transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+        marginLeft: 0,
+    },
+    hide: {
+        display: 'none',
     },
     drawer: {
         [theme.breakpoints.up('sm')]: {
@@ -37,31 +62,50 @@ const useStyles = makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
     menuButton: {
         marginRight: theme.spacing(2),
-        [theme.breakpoints.up('sm')]: {
-            display: 'none',
-        },
+    },
+    drawerHeader: {
+        display: 'flex',
+        alignItems: 'center',
+        padding: theme.spacing(0, 1),
+        // necessary for content to be below app bar
+        ...theme.mixins.toolbar,
+        justifyContent: 'flex-end',
     },
 }));
 
 export default function Sidebar(props) {
-    const { window } = props;
-
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [open, setOpen] = useState(false);
+
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
+    const handleDrawerOpen = () => {
+        setOpen(true);
+    };
+
+    const handleDrawerClose = () => {
+        setOpen(false);
+    };
+
     const drawer = (
         <div>
-            <div className={classes.toolbar} />
-            <List>
+            <div className={classes.drawerHeader}>
+                <Hidden smUp>
+                    <IconButton onClick={handleDrawerClose}>
+                        <ChevronLeftIcon style={{ color: 'white' }} />
+                    </IconButton>
+                </Hidden>
+            </div>
+            <List onClick={handleDrawerClose}>
                 <ListItemLink primary={"WELCOME"} icon="flare" to="/" exact />
             </List>
             <Divider />
-            <List component="nav">
-                <ListItemLink primary={"EXPERIENCE"} icon="code" to="/experience" />
+            <List component="nav" onClick={handleDrawerClose}>
+                <ListItemLink primary={"EXPERIENCE"}  icon="code" to="/experience" />
                 <ListItemLink primary={"PROJECTS"} icon="work" to="/projects" />
                 <ListItemLink primary={"ABOUT ME"} icon="info" to="/about" />
             </List>
@@ -95,39 +139,58 @@ export default function Sidebar(props) {
             </List>
         </div>
     );
-    const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={'left'}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-      </nav>
+        <>
+            <Hidden smUp>
+                <AppBar
+                    position="fixed"
+                    className={clsx(classes.appBar, {
+                        [classes.appBarShift]: open,
+                    })}
+                >
+                    <Toolbar>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            onClick={handleDrawerOpen}
+                            edge="start"
+                            className={clsx(classes.menuButton, open && classes.hide)}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+
+                    </Toolbar>
+                </AppBar>
+            </Hidden>
+            <nav className={classes.drawer} aria-label="mailbox folders">
+                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+                <Hidden smUp implementation="css">
+                    <Drawer
+                        className={classes.drawer}
+                        variant="persistant"
+                        anchor={'left'}
+                        open={open}
+                        onClose={handleDrawerToggle}
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                    >
+                        {drawer}
+                    </Drawer>
+                </Hidden>
+                <Hidden xsDown implementation="css">
+                    <Drawer
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                        variant="permanent"
+                        open
+                    >
+                        {drawer}
+                    </Drawer>
+                </Hidden>
+            </nav>
+        </>
     );
 }
