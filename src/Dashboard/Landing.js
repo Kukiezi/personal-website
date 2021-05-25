@@ -148,7 +148,6 @@ export default function Landing() {
                     <Grid item xs={12}>
                         <Typography variant="h4" component="h2" style={{ fontWeight: "400", fontFamily: "Montserrat, sans-serif", textAlign: "left", padding: "10px", marginTop: "2rem" }}>
                             {skeleton ? <><span className={classes.linkText}>Work</span> Experience</> : <Skeleton />}
-
                         </Typography>
                     </Grid>
                     <Grid container justify="left" spacing={6} style={{ padding: "10px", position: 'relative' }}>

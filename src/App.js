@@ -1,6 +1,6 @@
 import './css/App.css';
 import Theme from './Theme';
-import { CssBaseline, Fade, Grid, makeStyles } from '@material-ui/core';
+import { CssBaseline, Fade, Grid, Hidden, makeStyles } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Experience from './Experience/Experience'
 import Sidebar from './Sidebar/Sidebar'
@@ -28,13 +28,17 @@ function App() {
               <Switch>
                 <Route path="/" exact>
                   <Grid item xl={10} lg={9} md={8} sm={6} xs={11} justify="center" alignItems="center" alignContent="center">
-                    <div className={classes.toolbar} />
+                    <Hidden smUp>
+                      <div className={classes.toolbar} />
+                    </Hidden>
                     <Landing />
                   </Grid>
                 </Route>
                 <Route path="/experience">
                   <Grid item xl={10} lg={9} md={8} sm={6} xs={11}>
-                    <div className={classes.toolbar} />
+                    <Hidden smUp>
+                      <div className={classes.toolbar} />
+                    </Hidden>
                     <Experience />
                   </Grid>
                 </Route>
