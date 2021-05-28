@@ -6,6 +6,7 @@ import Experience from './Experience/Experience'
 import Sidebar from './Sidebar/Sidebar'
 import Landing from './Dashboard/Landing';
 import LoadedContext from './Dashboard/LoadedContext';
+import Project from './Projects/Project';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
@@ -43,6 +44,12 @@ function App() {
                   </Grid>
                 </Route>
                 <Route path="/projects">
+                <Grid item xl={10} lg={9} md={8} sm={6} xs={11}>
+                    <Hidden smUp>
+                      <div className={classes.toolbar} />
+                    </Hidden>
+                    <Project />
+                  </Grid>
                 </Route>
                 <Route path="/about">
                 </Route>
