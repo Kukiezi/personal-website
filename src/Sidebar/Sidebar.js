@@ -93,21 +93,21 @@ export default function Sidebar(props) {
 
     const drawer = (
         <div>
-            <div className={classes.drawerHeader}>
-                <Hidden smUp>
+            <Hidden smUp>
+                <div className={classes.drawerHeader}>
+
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon style={{ color: 'white' }} />
                     </IconButton>
-                </Hidden>
-            </div>
+                </div>
+            </Hidden>
             <List onClick={handleDrawerClose}>
                 <ListItemLink primary={"WELCOME"} icon="flare" to="/" exact />
             </List>
             <Divider />
             <List component="nav" onClick={handleDrawerClose}>
-                <ListItemLink primary={"EXPERIENCE"}  icon="code" to="/experience" />
+                <ListItemLink primary={"EXPERIENCE"} icon="code" to="/experience" />
                 <ListItemLink primary={"PROJECTS"} icon="work" to="/projects" />
-                <ListItemLink primary={"ABOUT ME"} icon="info" to="/about" />
             </List>
             <Divider />
             <List>

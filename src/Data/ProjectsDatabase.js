@@ -93,7 +93,6 @@ function ProjectsDatabase() {
             "paragraphs": [
                 "Created this website as an extra element for my portfolio.",
                 "Learned about Material UI with React",
-                "Learned about Material UI with React",
             ],
             "technologies": [
                 "React",

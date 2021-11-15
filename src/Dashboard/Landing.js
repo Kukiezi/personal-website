@@ -140,7 +140,7 @@ export default function Landing() {
                             })}
                         </Grid>
                     </Grid>
-                   
+
                 </Grid>
             </Grid>
             <Grid item xs={12}>
@@ -150,9 +150,10 @@ export default function Landing() {
                             {skeleton ? <><span className={classes.linkText}>Work</span> Experience</> : <Skeleton />}
                         </Typography>
                     </Grid>
-                    <Grid container justify="left" spacing={6} style={{ padding: "10px", position: 'relative' }}>
+                    <Grid container justify="left" spacing={3} style={{ padding: "10px", position: 'relative' }}>
                         <WorkGraph skeleton={skeleton} />
                     </Grid>
+
                     <Grid item xs={12}>
                         <MaterialLink component={Link} to="/experience">
                             <Typography variant="body3" component="body" style={{ fontWeight: "400", fontFamily: "Montserrat, sans-serif", textAlign: "left", padding: "10px", display: 'inline' }}>

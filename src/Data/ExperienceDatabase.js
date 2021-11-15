@@ -5,7 +5,7 @@ function ExperienceDatabase() {
             "logo": "https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512",
             "company": "Facebook",
             "position": "Software Engineer",
-            "team": "IAM - Identity and Access Management",
+            "team": "Identity and Access Management",
             "dates": "October 2020 - Present",
             "summary": "Fullstack development of internal tools and backend system",
             "paragraphs": [
@@ -124,7 +124,7 @@ function ExperienceDatabase() {
         {
             "logo": "https://i.ibb.co/F8dT4mB/1620159759467-Logo-Apollin1.png",
             "company": "Apollin",
-            "position": "Software Developer",
+            "position": "Software Engineer",
             "team": "Web Development",
             "dates": "March 2019 - September 2020",
             "summary": "Website development and maintenance with technologies such as PHP, Wordpress and React",

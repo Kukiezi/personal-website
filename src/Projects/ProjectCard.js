@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "rgba(25,118,210, 0.2)",
     },
     media: {
+        height: 'auto',
+        objectFit: 'contain'
+    },
+    media2: {
         height: 60,
         objectFit: 'contain'
     },
@@ -34,15 +38,15 @@ function ProjectCard(props) {
                 <CardContent>
                     <Hidden only={['xs', 'sm', 'lg', 'xl']}>
                         <CardMedia
-                            className={classes.media}
+                            className={classes.media2}
                             image={props.props.logo}
                             title={props.props.company + " logo"}
                             component="img"
                         />
                     </Hidden>
                     <Hidden only={['md']}>
-                        <Grid item xs container spacing={2}>
-                            <Grid item md={12} lg={3}>
+                        <Grid item xs container spacing={2} alignItems='center'>
+                            <Grid item xs={3} md={12} lg={3}>
                                 <CardMedia
                                     className={classes.media}
                                     image={props.props.logo}
