@@ -1,6 +1,8 @@
 import '../css/App.css';
-import { Typography, Card, CardContent, CardActionArea, CardMedia, Grid, Hidden } from '@material-ui/core';
+import { Typography, Card, CardContent, CardActionArea, CardMedia, Grid, Hidden, Grow } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import ExperienceParagraph from '../Experience/ExperienceParagraph';
+import TechnologyParagraph from '../Experience/TechnologyParagraph';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -68,7 +70,26 @@ function ProjectCard(props) {
                                     {props.props.summary}
                                 </Typography>
                             </Grid>
-
+                        </Grid>
+                    </Hidden>
+                    <Hidden only={['sm', 'md', 'lg', 'xl']}>
+                        <Grid item xs container direction="column" spacing={2}>
+                            <Grid item xs={12}>
+                                {props.props.paragraphs.map(paragraph => {
+                                    return <ExperienceParagraph props={paragraph} color={props.props.textColor} smallText={true} />
+                                })}
+                            </Grid>
+                            <Grid container direction="column" spacing={2} alignItems="center">
+                                <Grid item xs={11}>
+                                    <Grow in={true} timeout={5000}>
+                                        <Grid spacing={2} container direction="row" alignItems="center" alignContent="center">
+                                            {props.props.technologies.map(technology => {
+                                                return <TechnologyParagraph props={technology} color={props.props.color} smallText={true} />
+                                            })}
+                                        </Grid>
+                                    </Grow>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Hidden>
                 </CardContent>

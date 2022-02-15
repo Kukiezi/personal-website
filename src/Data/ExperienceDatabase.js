@@ -68,8 +68,8 @@ function ExperienceDatabase() {
             "dates": "May 2020 - August 2020",
             "summary": "Internal tools development for Business Development Center",
             "paragraphs": [
-                "Development of Web Application for companies to create advertisement campaign with influencers from various platforms like Youtube, Instagram and Tiktok",
-                "Lead the team of three people to create platform from scratch with great perfromance and organized code."
+                "Full Stack development of internal tool for Business Development Center to improve the way in which they manage data.",
+                "Developed Website for new service offered by the company. Vintage cars."
             ],
             "technologies": [
                 "Python",

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         objectFit: 'contain'
     },
     fullHeight: {
-        
+
     }
 }));
 
@@ -50,7 +50,7 @@ function ExpCardDetails(props) {
                         <Grid item xs={12}>
                             <Typography gutterBottom variant="h6" component="h2" style={{ fontFamily: "Montserrat, sans-serif", textAlign: 'center' }}>
                                 What I worked on
-                        </Typography>
+                            </Typography>
                             {props.props.paragraphs.map(paragraph => {
                                 return <ExperienceParagraph props={paragraph} color={props.props.textColor} />
                             })}
@@ -59,7 +59,7 @@ function ExpCardDetails(props) {
                             <Grid item xs={12}>
                                 <Typography gutterBottom variant="h6" component="h2" style={{ fontFamily: "Montserrat, sans-serif", textAlign: 'center', marginTop: '10px' }}>
                                     Technologies I used
-                            </Typography>
+                                </Typography>
                             </Grid>
                             <Grid item xs>
                                 <Grow in={true} timeout={5000}>
