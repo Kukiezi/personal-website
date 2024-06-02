@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "rgba(25,118,210, 0.2)",
     },
     media: {
-        height: 'auto',
+        height: 95,
         objectFit: 'contain'
     },
     media2: {

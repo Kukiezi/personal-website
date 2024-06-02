@@ -2,11 +2,38 @@
 function ExperienceDatabase() {
     return [
         {
-            "logo": "https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512",
+            "logo": "/atlassianmark.svg",
+            "company": "Atlassian",
+            "position": "Software Engineer",
+            "team": "Jira Cloud Search",
+            "dates": "Sep 2023 - Present",
+            "summary": "Backend development of Jira Cloud Search systems",
+            "paragraphs": [
+                "Development of backend systems for Jira Cloud Search, that provides search functionality for Jira Cloud.",
+                "Implemented new storage solution with Elasticsearch, that improved search performance.",
+                "Created multiple dashboards that provide insights into search performance and user behavior.",
+            ],
+            "technologies": [
+                "Java",
+                "Kotlin",
+                "Python",
+                "Elasticsearch"
+            ],
+            "color": "rgba(25,118,210, 0.2)",
+            "textColor": "#1976d2",
+            "messeges": [
+                "Atlassian is a company that develops software for software development!",
+                "The main campus is in Sydney, Australia, but I work in Gdansk, Poland!",
+                "I work on Jira Cloud Search, where we develop search systems for Jira Cloud!",
+                "It's a great place to work, with a lot of opportunities to learn and grow!",
+            ]
+        },
+        {
+            "logo": "/fblogo.png",
             "company": "Facebook",
             "position": "Software Engineer",
             "team": "Identity and Access Management",
-            "dates": "October 2020 - Present",
+            "dates": "October 2020 - Sep 2023",
             "summary": "Fullstack development of internal tools and backend system",
             "paragraphs": [
                 "Worked on backend systems for all employees, that registers proper accounts and provides access to relevant tools.",
@@ -61,7 +88,7 @@ function ExperienceDatabase() {
         //     ]
         // },
         {
-            "logo": "https://www.motorcentrum.pl/wp-content/uploads/2019/01/logo-motorcentrum-2.png",
+            "logo": "/motorcentrumlogo.png",
             "company": "Motor Centrum",
             "position": "Software Engineer",
             "team": "Engineering team",
@@ -88,7 +115,7 @@ function ExperienceDatabase() {
             ]
         },
         {
-            "logo": "https://flywider.net/wp-content/uploads/2019/04/flywider.png",
+            "logo": "/flywider.png",
             "company": "Flywider",
             "position": "Software Engineer",
             "team": "Engineering team lead",

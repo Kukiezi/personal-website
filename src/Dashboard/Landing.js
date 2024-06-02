@@ -157,7 +157,7 @@ export default function Landing() {
                     <Grid item xs={12}>
                         <MaterialLink component={Link} to="/experience">
                             <Typography variant="body3" component="body" style={{ fontWeight: "400", fontFamily: "Montserrat, sans-serif", textAlign: "left", padding: "10px", display: 'inline' }}>
-                                {skeleton ? <><span className={classes.linkText}>Check out my experience</span>
+                                {skeleton ? <><span className={classes.linkText}>Check out my full experience</span>
                                     <TouchAppIcon /></> : <Skeleton />}
                             </Typography>
                         </MaterialLink>

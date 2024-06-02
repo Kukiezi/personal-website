@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function WorkGraph(props) {
     const classes = useStyles();
-    const workData = ExperienceDatabase();
+    const workData = ExperienceDatabase().filter((data) => data.company !== "Motor Centrum");
     
     return (
         <> {props.skeleton ? <>
