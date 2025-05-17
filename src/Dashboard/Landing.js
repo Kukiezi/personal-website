@@ -169,7 +169,6 @@ export default function Landing() {
                     <Grid item xs={12}>
                         <Typography variant="h4" component="h2" style={{ fontWeight: "400", fontFamily: "Montserrat, sans-serif", textAlign: "left", padding: "10px", marginTop: "2rem" }}>
                             {skeleton ? <>Learn <span className={classes.linkText}>About</span> Me</> : <Skeleton />}
-
                         </Typography>
                     </Grid>
                     <Grid item xs={12}>
@@ -177,6 +176,11 @@ export default function Landing() {
                             {data.map(x => {
                                 return <SimpleCard data={x} skeleton={skeleton} />
                             })}
+                            <SimpleCard data={{
+                                "title": "Real Estate",
+                                "text": <>I have been interested in real estate for a long time. I have been investing in it for a few years now and I am planning to do more in the future. I also built website <a style={{ color: "#007bff" }} href="https://skup123.pl">skup123.pl</a>.</>,
+                                "image": "https://unblast.com/wp-content/uploads/2021/09/Real-Estate-Vector-Illustration.jpg",
+                            }} skeleton={skeleton} />
                         </Grid>
                     </Grid>
                 </Grid>

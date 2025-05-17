@@ -24,7 +24,7 @@ export default function SimpleCard(props) {
                         component="img" />
                     <CardContent>
                         <Typography variant="h6" component="h3">{props.data.title}</Typography>
-                        <Typography variant="body2" component="h3">{props.data.text}</Typography>
+                        <Typography variant="body2" component="p">{props.data.text}</Typography>
                     </CardContent>
                 </Card>
             </Grid></Grow> :
